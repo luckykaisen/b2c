@@ -1,5 +1,62 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper SYSTEM "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.atguigu.dao.SkuDao">
-
+	
+	<select id="select_spu_sp" resultType="com.atguigu.bean.T_MALL_PRODUCT">
+		select * from t_mall_product 
+		where flbh1 = #{flbh1} and flbh2 = #{flbh2} and pp_id = #{pp_id}
+	</select>
+	
+	
+	<insert id="save_sku" useGeneratedKeys="true" keyColumn="id" keyProperty="id" parameterType="com.atguigu.bean.T_MALL_SKU">
+	<!-- 	insert into t_mall_sku 
+		(
+			shp_id,
+			kc,
+			jg,
+			sku_mch,
+			kcdz
+		)values(
+			#{shp_id},
+			#{kc},
+			#{jg},
+			#{sku_mch},
+			#{kcdz}
+		) -->
+		insert into t_mall_sku 
+		(
+			shp_id,
+			kc,
+			jg,
+			sku_mch,
+			kcdz
+		)values(
+			#{shp_id},
+			#{kc},
+			#{jg},
+			#{sku_mch},
+			#{kcdz}
+		)
+	</insert>
+	
+	<insert id="save_sku_attr_value" parameterType="Map">
+		insert into t_mall_sku_attr_value 
+		(
+			shxm_id,
+			shxzh_id,
+			shp_id,
+			sku_id			
+		)values
+		<foreach collection="list_sku" item="sku" separator=",">
+			<if test="sku.shxm_id!=''">
+				(
+				#{sku.shxm_id},
+				#{sku.shxzh_id},
+				#{shp_id},
+				#{sku_id}	
+				)
+			</if>
+			
+		</foreach>
+	</insert>
 </mapper>

@@ -55,7 +55,7 @@ public class SpuAttrController {
 	@RequestMapping("save_attr")
 	public ModelAndView save_attr(MODEL_OBJECT_T_MALL_ATTR list_attr, T_MALL_ATTR attr) {
 		
-		ModelAndView modelAndView = new ModelAndView("redirect:/spu_attr_add.do");
+		ModelAndView modelAndView = new ModelAndView("redirect:/spu_attr.do");
 		List<OBJECT_T_MALL_ATTR> list_attr2 = list_attr.getList_attr();
 		
 	

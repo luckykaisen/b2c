@@ -38,19 +38,42 @@ $(function() {
 			$("#pp").empty();
 			// 遍历到下拉菜单
 			$.each(data, function(i, n) {
-				$("#pp").append(
-						"<option value="+n.id+">" + n.ppmch + "</option>");
+				$("#pp").append("<option value="+n.id+">" + n.ppmch + "</option>");
 			});
 
+		});
+	}
+	function spu_sp_change(pp_id){
+		var flbh1 = $("#class_1").val();
+		var flbh2 = $("#class_2").val();
+		
+		$.post("get_spu_sp.do" ,{"flbh1" : flbh1 , "flbh2" :flbh2 ,"pp_id" : pp_id} , function (data){
+			$("#sp").empty();
+			$.each(data , function(i , n ){
+				$("#sp").append("<option value="+n.id+">" + n.shp_mch + "</option>");
+			});
+			 
+		});
+	}
+	
+	// 加载局部页面仓库属性
+	function get_spu_attr(sp_id){
+		var flbh2 = $("#class_2").val();
+		$.post("get_sku_attr.do",{"flbh2":flbh2 , "sp_id" : sp_id},function(data){
+			$("#sku_attr").html(data);
 		});
 	}
 </script>
 <title>硅谷商城</title>
 </head>
 <body>
-	<select name="flbh1" id="class_1" onchange="get_class2_by_class1_id(this.value)"></select> 
-	<select name="flbh2" id="class_2"></select> 
-	<select name="pp_id" id="pp"></select>
-	<select name="pp_id" id="sp"></select>
+	<form action="save_sku_attr_sp.do" method="post">
+		<select name="flbh1" id="class_1" onchange="get_class2_by_class1_id(this.value)"></select> 
+		<select name="flbh2" id="class_2"></select> 
+		<select name="pp_id" id="pp" onchange="spu_sp_change(this.value)"></select>
+		<select name="sp_id" id="sp" onchange="get_spu_attr(this.value)"></select>
+		<br>
+		<idv id="sku_attr"></div>
+	</form>
 </body>
 </html>

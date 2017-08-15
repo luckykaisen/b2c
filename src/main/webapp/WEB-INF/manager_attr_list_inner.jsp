@@ -20,9 +20,9 @@
 <body>
 	属性名 ： ${flmch_2}<br>
 	<c:forEach items="${attr}" var="attr_1">
-		${attr_1.shxm_mch }<br>
+		${attr_1.shxm_mch } :
 		<c:forEach items="${attr_1.list_value}" var="attr_2">
-			${attr_2.shxzh_mch}&nbsp;&nbsp;${attr_2.shxzh}&nbsp;&nbsp;
+		${attr_2.shxzh}	&nbsp;${attr_2.shxzh_mch}&nbsp;&nbsp;
 		</c:forEach>
 		<br>
 	</c:forEach>
