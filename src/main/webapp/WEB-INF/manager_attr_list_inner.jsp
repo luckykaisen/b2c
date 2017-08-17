@@ -8,7 +8,6 @@
 <html>
 <head>
 <base href="<%=basePath %>">
-<script type="text/javascript" src="js/jquery-1.7.2.min.js"></script>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <script type="text/javascript">
 	function spu_attr_add(){
@@ -28,5 +27,6 @@
 	</c:forEach>
 	
 	<a href="spu_attr_add.do?flmch_2=${flmch_2}&flbh2=${flbh2}" >添加属性</a>
+	
 </body>
 </html>

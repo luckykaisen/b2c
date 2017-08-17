@@ -8,9 +8,8 @@
 <html>
 <head>
 <base href="<%=basePath %>">
-<script type="text/javascript" src="js/jquery-1.7.2.min.js"></script>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<script type="text/javascript">
+	<script type="text/javascript">
 	var index = 1;
 	function spu_attr_add_value(){
 		var a = '<table id="table_'+index+'" border="1">';
@@ -28,7 +27,7 @@
 		var tr = '<tr><td>属性值 : <input type="text" name="list_attr['+table_index+'].list_value['+(tr_length - 1)+'].shxzh"/></td><td>单位 : <input type="text" name="list_attr['+table_index+'].list_value['+(tr_length - 1)+'].shxzh_mch"/></td><td></td><td>删除</td></tr>';
 		$("#table_" + table_index).append(tr);
 	}
-	
+	alert("123");
 </script>
 <title>硅谷商城</title>
 </head>
@@ -46,5 +45,6 @@
 		</div>
 		<input type="submit" value="提交"/>
 	</form>
+
 </body>
 </html>

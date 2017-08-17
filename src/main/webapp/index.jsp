@@ -7,19 +7,78 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<base href="<%=basePath %>">
-<script type="text/javascript" src="js/jquery-1.7.2.min.js"></script>
+	<base href="<%=basePath %>">
+	<script type="text/javascript" src="js/jquery-1.7.2.min.js"></script>
+	<script type="text/javascript" src="js/jquery-easyui-1.3.5/jquery.easyui.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="js/jquery-easyui-1.3.5/themes/default/easyui.css">
+	<link rel="stylesheet" type="text/css" href="js/jquery-easyui-1.3.5/themes/icon.css">
+
+
+
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <script type="text/javascript">
 
+	function add_tabs(url , title){
+		var flag = $('#tt').tabs('exists',title);
+		if(flag){
+			$('#tt').tabs('select',title);
+		}else{
+			$.post(url , function(data){
+				$('#tt').tabs('add',{    
+				    title:title,    
+				    content:data,    
+				    closable:true,
+				});  
+			});
+		}
+	}
+	
+	function add_tabs2n(url , title){
+		var flag = $('#tt').tabs('exists',title);
+		if(flag){
+			$('#tt').tabs('select',title);
+		}else{
+			$.post(url , function(data){
+				$('#tt').tabs('add',{    
+				    title:title,    
+				    content:data,    
+				    closable:true,
+				});  
+			});
+		}
+	}
 </script>
 <title>硅谷商城</title>
 </head>
-<body>
-	<a href="sale_spu.do">发布spu</a><br>
-	<a href="query_spu.do">查询商品</a><br>
-	<a href="spu_attr.do">添加属性</a><br>
-	<a href="goto_sku_add.do">添加库存</a><br>
-
+<body  class="easyui-layout">
+	<div data-options="region:'north',border:false" style="height:60px;background:#B3DFDA;padding:10px">north region</div>
+	<div data-options="region:'west',split:true,title:'West'" style="width:150px;padding:10px;">
+		<ul class="easyui-tree">
+			<li>
+				<span>商品管理</span>
+				<ul>
+					<li><a href="javascript:;add_tabs('sale_spu.do','发布spu')">发布spu</a></li>
+					<li><a href="javascript:;add_tabs('spu_attr.do' ,'添加属性')">添加属性</a></li>
+					<li><a href="javascript:;add_tabs('goto_sku_add.do','添加库存')">添加库存</a></li>
+				</ul>
+			</li>
+			<li>
+				<span>商品查询</span>
+				<ul>
+					<li><a href="query_spu.do">查询商品</a></li>
+				</ul>
+			</li>
+		</ul>
+	</div>
+	<div data-options="region:'east',split:true,collapsed:true,title:'East'" style="width:100px;padding:10px;">east region</div>
+	<div data-options="region:'south',border:false" style="height:50px;background:#A9FACD;padding:10px;">south region</div>
+	<div data-options="region:'center',title:'Center'">
+		<div id="tt" class="easyui-tabs"> 
+		 
+		</div>  
+	
+	</div>
+	 
+	
 </body>
 </html>

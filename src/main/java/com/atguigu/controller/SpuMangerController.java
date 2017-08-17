@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.atguigu.bean.MODEL_OBJECT_T_MALL_VALUE;
 import com.atguigu.bean.T_MALL_PRODUCT;
 import com.atguigu.service.SpuInfoService;
 import com.atguigu.util.MultipartFileUtil;
@@ -33,7 +34,7 @@ public class SpuMangerController {
 		}
 		String path = (String) properties.get("windows_path");
 		
-		List<T_MALL_PRODUCT> spu_info = spuInfoService.query_spu_all_info();
+		List<MODEL_OBJECT_T_MALL_VALUE> spu_info = spuInfoService.query_spu_all_info();
 		
 		paramMap.put("spu_info", spu_info);
 		return "html/list";

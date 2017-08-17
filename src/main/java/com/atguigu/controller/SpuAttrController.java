@@ -13,6 +13,7 @@ import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.ModelAndViewDefiningException;
 
 import com.atguigu.bean.MODEL_OBJECT_T_MALL_ATTR;
+import com.atguigu.bean.MODEL_OBJECT_T_MALL_VALUE;
 import com.atguigu.bean.OBJECT_T_MALL_ATTR;
 import com.atguigu.bean.T_MALL_ATTR;
 import com.atguigu.bean.T_MALL_VALUE;

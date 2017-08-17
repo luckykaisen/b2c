@@ -17,14 +17,26 @@
 </head>
 <body>
 
-	<table align="center" width="500px" border="1">
+	<%-- <table align="center"  border="1">
 		<c:forEach items="${spu_info}" var="spu">
+			<tr><td><img src="upload/image/${spu.shp_tp}" width="50px"></td><td>${spu.shp_mch} 
+			 </td><td>${spu.shp_msh }</td><td><a href="update.do?id=${spu.id}">更新</a></td><td>删除</td></tr>
+			<c:forEach items="${spu.list_value}" var="attr">
+					${attr.shxm_mch } ${attr.shxzh_mch }${attr.shxzh}
+			</c:forEach>
 			
-			<tr><td><img src="upload/image/${spu.shp_tp}" width="50px"></td><td>${spu.shp_mch }</td><td>${spu.shp_msh }</td><td><a href="update.do?id=${spu.id}">更新</a></td><td>删除</td></tr>
 		</c:forEach>	
 			
 			
-	</table>
+	</table> --%>
+	
+	<c:forEach items="${spu_info}" var="spu">
+			${spu.shp_mch}
+			<c:forEach items="${spu.list_value}" var="attr">
+					${attr.shxm_mch } ${attr.shxzh_mch }${attr.shxzh}
+			</c:forEach>
+			<br><br>
+		</c:forEach>	
 </body>
 </html>
 

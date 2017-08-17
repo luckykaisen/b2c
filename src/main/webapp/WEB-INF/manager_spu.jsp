@@ -11,7 +11,6 @@
 <html>
 <head>
 <base href="<%=basePath%>">
-<script type="text/javascript" src="js/jquery-1.7.2.min.js"></script>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <script type="text/javascript">
 	$(function() {
@@ -19,18 +18,18 @@
 		$.getJSON("js/json/class_1.js", function(data) {
 			// 遍历到下拉菜单
 			$.each(data, function(i, n) {
-				$("#class_1").append("<option value="+n.id+">" + n.flmch1 + "</option>");
+				$("#spu_class_1").append("<option value="+n.id+">" + n.flmch1 + "</option>");
 			});
 
 		});
 	});
 		function get_class2_by_class1_id(class_1_id) {
-			$("#pp").empty();
-			$("#class_2").empty();
+			$("#spu_pp").empty();
+			$("#spu_class_2").empty();
 			$.getJSON("js/json/class_2_" + class_1_id + ".js", function(data) {
 				// 遍历到下拉菜单
 				$.each(data, function(i, n) {
-					$("#class_2").append("<option value="+n.id+">" + n.flmch2+"</option>");
+					$("#spu_class_2").append("<option value="+n.id+">" + n.flmch2+"</option>");
 				});
 			});
 			get_tm_by_class2_id(class_1_id);
@@ -38,10 +37,10 @@
 
 		function get_tm_by_class2_id(class_1_id) {
 			$.getJSON("js/json/tm_class_1_" + class_1_id + ".js", function(data) {
-				$("#pp").empty();
+				$("#spu_pp").empty();
 				// 遍历到下拉菜单
 				$.each(data, function(i, n) {
-					$("#pp").append(
+					$("#spu_pp").append(
 							"<option value="+n.id+">" + n.ppmch + "</option>");
 				});
 
@@ -69,9 +68,9 @@
 </head>
 <body>
 	<form action="save_spu.do" enctype="multipart/form-data" method="post">
-		<select name="flbh1" id="class_1" onchange="get_class2_by_class1_id(this.value)"></select> 
-		<select name="flbh2" id="class_2"></select> 
-		<select name="pp_id" id="pp"></select>
+		<select name="flbh1" id="spu_class_1" onchange="get_class2_by_class1_id(this.value)"></select> 
+		<select name="flbh2" id="spu_class_2"></select> 
+		<select name="pp_id" id="spu_pp"></select>
 		<hr>
 		商品名称：<input type="text" name="shp_mch"><br>
 		商品描述：<input type="text" name="shp_msh"><br>  
