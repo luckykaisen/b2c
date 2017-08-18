@@ -13,6 +13,7 @@
 	function spu_attr_add(){
 		
 	}
+	
 </script>
 <title>硅谷商城</title>
 </head>
@@ -25,6 +26,7 @@
 		</c:forEach>
 		<br>
 	</c:forEach>
+
 	
 	<a href="spu_attr_add.do?flmch_2=${flmch_2}&flbh2=${flbh2}" >添加属性</a>
 	

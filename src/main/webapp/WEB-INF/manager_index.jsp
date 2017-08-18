@@ -14,13 +14,21 @@
 	<link rel="stylesheet" type="text/css" href="js/easyui/themes/icon.css">
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <script type="text/javascript">
-
+ 
+	$(function(){
+		var url = "${url}";
+		var title = "${title}";
+		if(url != '' && title != ''){
+			add_tabs(url , title);
+		}
+		
+	}); 
 	function add_tabs(url , title){
 		var flag = $('#tt').tabs('exists',title);
 		if(flag){
 			$('#tt').tabs('select',title);
 		}else{
-			$.post(url , function(data){
+			$.post(url ,{"url" :url,"title":title}, function(data){
 				$('#tt').tabs('add',{    
 				    title:title,    
 				    content:data,    
@@ -29,21 +37,7 @@
 			});
 		}
 	}
-	
-	function add_tabs2n(url , title){
-		var flag = $('#tt').tabs('exists',title);
-		if(flag){
-			$('#tt').tabs('select',title);
-		}else{
-			$.post(url , function(data){
-				$('#tt').tabs('add',{    
-				    title:title,    
-				    content:data,    
-				    closable:true,
-				});  
-			});
-		}
-	}
+	 
 </script>
 <title>硅谷商城</title>
 </head>
@@ -71,11 +65,9 @@
 	<div data-options="region:'south',border:false" style="height:50px;background:#A9FACD;padding:10px;">south region</div>
 	<div data-options="region:'center',title:'Center'">
 		<div id="tt" class="easyui-tabs"> 
-		 
+		 	
 		</div>  
-	
+		
 	</div>
-	 
-	
 </body>
 </html>

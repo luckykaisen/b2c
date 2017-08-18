@@ -27,7 +27,6 @@
 		var tr = '<tr><td>属性值 : <input type="text" name="list_attr['+table_index+'].list_value['+(tr_length - 1)+'].shxzh"/></td><td>单位 : <input type="text" name="list_attr['+table_index+'].list_value['+(tr_length - 1)+'].shxzh_mch"/></td><td></td><td>删除</td></tr>';
 		$("#table_" + table_index).append(tr);
 	}
-	alert("123");
 </script>
 <title>硅谷商城</title>
 </head>
