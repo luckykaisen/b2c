@@ -8,27 +8,21 @@
 <html>
 <head>
 <base href="<%=basePath %>">
+<script type="text/javascript" src="js/jquery-1.7.2.min.js"></script>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <script type="text/javascript">
-	function spu_attr_add(){
-		
-	}
-	
+
 </script>
 <title>硅谷商城</title>
 </head>
 <body>
-	属性名 ： ${flmch_2}<br>
-	<c:forEach items="${attr}" var="attr_1">
-		${attr_1.shxm_mch } :
-		<c:forEach items="${attr_1.list_value}" var="attr_2">
-		${attr_2.shxzh}	&nbsp;${attr_2.shxzh_mch}&nbsp;&nbsp;
-		</c:forEach>
-		<br>
-	</c:forEach>
+	<form action="mall_regist.do" method="post">
+		用户名：<input type="text" name="yh_mch"/><br>
+		用户昵称：<input type="text" name="yh_nch"/><br>
+		用户邮箱：<inputype="text" name="yh_yx"/><br>
+		密    码：<input type="text" name="yh_mm"/><br>
+		<input type="submit" value="提交"/>
+	</form>
 
-	
-	<a href="spu_attr_add.do?flmch_2=${flmch_2}&flbh2=${flbh2}" >添加属性</a>
-	
 </body>
 </html>

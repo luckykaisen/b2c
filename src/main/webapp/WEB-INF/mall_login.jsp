@@ -16,7 +16,11 @@
 <title>硅谷商城</title>
 </head>
 <body>
-	
+	<form action="mall_login.do" method="post">
+		用户名：<input type="text" name="yh_mch"/><br>
+		密    码：<input type="text" name="yh_mm"/><br>
+		<input type="submit" value="提交"/>
+	</form>
 	
 </body>
 </html>

@@ -11,12 +11,19 @@
 <script type="text/javascript" src="js/jquery-1.7.2.min.js"></script>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <script type="text/javascript">
+	
 
 </script>
 <title>硅谷商城</title>
 </head>
-<body>
-	${requestScope.list }
 
+
+<body>
+	<c:if test="${empty user }">
+		${yh_mch }<a id="a_mall_login" href="goto_mall_login.do">登录</a>&nbsp;&nbsp;<a href="goto_mall_regist.do">注册</a>
+	</c:if>
+	<c:if test="${not empty user }">
+		<a>欢迎${user.yh_nch }</a>我的订单<a href="mall_logout.do">注销</a>
+	</c:if>
 </body>
 </html>
