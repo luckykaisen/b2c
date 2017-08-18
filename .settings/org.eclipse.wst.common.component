@@ -5,6 +5,6 @@
         <wb-resource deploy-path="/" source-path="/target/m2e-wtp/web-resources"/>
         <wb-resource deploy-path="/" source-path="/src/main/webapp" tag="defaultRootSource"/>
         <property name="java-output-path" value="/manage_sen/target/classes"/>
-        <property name="context-root" value="manage_sen"/>
+        <property name="context-root" value="mall_sen"/>
     </wb-module>
 </project-modules>
