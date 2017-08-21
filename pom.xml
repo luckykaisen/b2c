@@ -8,6 +8,12 @@
   <name>mall_manage_sen Maven Webapp</name>
   <url>http://maven.apache.org</url>
   	<dependencies>
+  		<dependency>
+		    <groupId>com.alibaba</groupId>
+		    <artifactId>fastjson</artifactId>
+		    <version>1.2.31</version>
+		</dependency>
+  		
 		<!-- 1.连接池 -->
 		<dependency>
 			<groupId>mysql</groupId>

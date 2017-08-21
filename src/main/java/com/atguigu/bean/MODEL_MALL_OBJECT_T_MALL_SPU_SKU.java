@@ -43,15 +43,9 @@ public class MODEL_MALL_OBJECT_T_MALL_SPU_SKU extends T_MALL_SKU {
 
 	public List<T_MALL_PRODUCT_IMAGE> getList_image() {
 		return list_image;
-	}
+	} 
 
 	public void setList_image(List<T_MALL_PRODUCT_IMAGE> list_image) {
 		this.list_image = list_image;
 	}
-	
-	
-	
-	
-	
-	
 }

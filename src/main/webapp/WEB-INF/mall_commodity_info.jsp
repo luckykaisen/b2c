@@ -31,7 +31,20 @@
 		<a href="query_commodity_info.do?spu_id=${sku.shp_id}&sku_id=${sku.id}">${sku.sku_mch }</a>&nbsp;&nbsp;
 	</c:forEach>
 	<hr>
-	<button id="btn_add_cart" type="button" value="${spu_sku_attr.id}">加入购物车</button>
+	
+	<form action="add_cart.do" method="post">
+		<input type="hidden" name="sku_mch" value="${spu_sku_attr.sku_mch}"/>
+		<input type="hidden" name="sku_jg" value="${spu_sku_attr.jg}"/>
+		<input type="hidden" name="tjshl" value="1"/>
+<%-- 		<input type="hidden" name="yh_id" value="${user.id }"/> --%>
+		<input type="hidden" name="shp_id" value="${spu_sku_attr.t_mall_product.id}"/>
+		<input type="hidden" name="sku_id" value="${spu_sku_attr.id}"/>
+		<input type="hidden" name="shp_tp" value="${spu_sku_attr.t_mall_product.shp_tp}"/>
+		<input type="hidden" name="shfxz" value="0"/>
+		<input type=hidden name="kcdz" value="${spu_sku_attr.kcdz}"/>
+		<input type="submit" value="加入购物车"/>
+	</form>
+
 	<hr>
 	<c:forEach items="${spu_sku_attr.list_image}" var="image">
 		<img alt="" src="upload/image/${image.url}" width="500px"><br>

@@ -1,5 +1,6 @@
 package com.atguigu.bean;
 
+import java.math.BigDecimal;
 import java.util.Date;
 
 public class T_MALL_SHOPPINGCAR {
@@ -7,7 +8,7 @@ public class T_MALL_SHOPPINGCAR {
 	private String sku_mch;
 	private double sku_jg;
 	private int tjshl;
-	private double hj;
+	private BigDecimal hj;
 	private int yh_id;
 	private int shp_id;
 	private Date chjshj;
@@ -57,11 +58,12 @@ public class T_MALL_SHOPPINGCAR {
 		this.tjshl = tjshl;
 	}
 
-	public double getHj() {
+
+	public BigDecimal getHj() {
 		return hj;
 	}
 
-	public void setHj(double hj) {
+	public void setHj(BigDecimal hj) {
 		this.hj = hj;
 	}
 
