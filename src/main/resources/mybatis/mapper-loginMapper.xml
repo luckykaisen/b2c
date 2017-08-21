@@ -10,4 +10,6 @@
 	<insert id="mall_regist">
 		insert into t_mall_user_account(yh_mch,yh_nch,yh_yx,yh_mm) values(#{yh_mch},#{yh_nch},#{yh_yx},#{yh_mm})
 	</insert>
+	
+	
 </mapper>
