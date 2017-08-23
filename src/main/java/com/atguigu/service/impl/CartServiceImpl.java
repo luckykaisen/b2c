@@ -30,4 +30,32 @@ public class CartServiceImpl implements CartService {
 	public void update_cart(T_MALL_SHOPPINGCAR old_cart , int sku_id) {
 		cartMapper.update_cart(old_cart , sku_id);
 	}
+
+	@Override
+	public void add_cart_batch(Map<String,Object> paramMap) {
+		cartMapper.add_cart_batch(paramMap);
+	}
+
+	@Override
+	public void update_same_cart_batch(List<T_MALL_SHOPPINGCAR> list) {
+		cartMapper.update_same_cart_batch(list);
+	}
+
+	@Override
+	public void update_cart_commodity_status(Map<String, Object> paramMap) {
+		cartMapper.update_cart_commodity_status(paramMap);
+	}
+
+	/**
+	 * 更新购物车中商品的总数量以及总价格
+	 */
+	@Override
+	public void update_cart_total_price_and_total_num(Map<String, Object> paramMap) {
+		cartMapper.update_cart_total_price_and_total_num(paramMap);
+	}
+
+	@Override
+	public void delete_cart_by_sku_id(Map<String, Object> paramMap) {
+		cartMapper.delete_cart_by_sku_id(paramMap);
+	}
 }

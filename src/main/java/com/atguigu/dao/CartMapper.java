@@ -15,4 +15,14 @@ public interface CartMapper {
 
 	void update_cart(@Param("old_cart")T_MALL_SHOPPINGCAR old_cart ,@Param("sku_id") int sku_id);
 
+	void add_cart_batch(Map<String, Object> paramMap);
+
+	void update_same_cart_batch(@Param("list")List<T_MALL_SHOPPINGCAR> list);
+
+	void update_cart_commodity_status(Map<String, Object> paramMap);
+
+	void update_cart_total_price_and_total_num(Map<String, Object> paramMap);
+
+	void delete_cart_by_sku_id(Map<String, Object> paramMap);
+
 }

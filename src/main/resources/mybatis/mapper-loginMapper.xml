@@ -3,7 +3,7 @@
 <mapper namespace="com.atguigu.dao.LoginMapper">
 	<!-- 用户登录 -->
 	<select id="mall_login" resultType="com.atguigu.bean.T_MALL_USER">
-		select * from t_mall_user_account
+		select * from t_mall_user_account where yh_mch = #{yh_mch} and yh_mm = #{yh_mm}
 	</select>
 	
 	<!-- 注册用户 -->

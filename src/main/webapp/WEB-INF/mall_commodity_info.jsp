@@ -17,6 +17,8 @@
 </head>
 <body>
 	<img alt="" src="upload/image/${spu_sku_attr.t_mall_product.shp_tp}" width="200px"><img/>
+	
+	<jsp:include page="mall_mini_cart_inner.jsp"></jsp:include>
 	<hr>
 	商品名称 : ${spu_sku_attr.t_mall_product.shp_mch}<br>
 	商品属性 : 

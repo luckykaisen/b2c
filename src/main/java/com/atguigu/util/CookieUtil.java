@@ -8,6 +8,9 @@ import com.atguigu.bean.T_MALL_SHOPPINGCAR;
 
 public class CookieUtil {
 
+
+	
+	
 	/**
 	 * 判断新添加购物车中的商品是否是新的商品
 	 * @param list_cart

@@ -39,16 +39,10 @@
 		<ul id="mall_spu_class_1"></ul>
 	</div>
 	
+	<jsp:include page="mall_mini_cart_inner.jsp"></jsp:include>
+	
 	<!-- 显示已选择过滤属性 -->
 	<div id="select_attr">
-		<%-- <c:forEach items="${mall_attr}" var="attr">
-			<div id="attr_${attr.id}">
-				${attr.shxm_mch} :
-				<c:forEach items="${attr.list_value}" var="attr_value">
-					<a href="javascript:;select_attr('${attr_value.shxzh_mch}','${attr_value.shxzh }',${attr_value.id },${attr.id },${flbh2 })">${attr_value.shxzh }${attr_value.shxzh_mch }</a>
-				</c:forEach>
-			</div>
-		</c:forEach> --%>
 	</div>
 	
 	<div>
