@@ -16,19 +16,39 @@
 <title>硅谷商城</title>
 </head>
 <body>
+
+
+<!--购物车商品-->
+		<div class="cart_pro">
+		
+			<c:if test="${not empty list_cart}">
+				<h6>最新加入的商品</h6>
+				<c:forEach items="${list_cart}" var="cart">
+					<div class="one">
+						<img alt="" src="upload/image/${cart.shp_tp}" width="70px">
+						<span class="one_name">
+							${cart.sku_mch}
+						</span>
+						<span class="one_prece">
+							<b>￥${cart.sku_jg}</b><br/>
+							<a href="javascript:;">delete</a>
+						</span>
+					</div>
+				</c:forEach>
+				<div class="gobottom">
+					共<span>${total_commodity}</span>件商品&nbsp;&nbsp;&nbsp;&nbsp;
+					共计￥<span>${total_price}</span>
+					<button class="goprice">去购物车</button>
+				</div>
+				
+			</c:if>
+		</div>
 	
-		<c:if test="${not empty list_cart}">
-			<c:forEach items="${list_cart}" var="cart">
-				<img alt="" src="upload/image/${cart.shp_tp}" width="70px">
-				￥${cart.sku_jg}x${cart.tjshl} <a href="javascript:;">删除</a>
-				<br>
-			</c:forEach>
-			共 ${total_commodity}件商品 ，共计￥${total_price}元   <a href="javascript:;">去购物车</a>
-		</c:if>
-		 
 		<c:if test="${empty list_cart}">
 			购物车中还没有商品，赶紧选购吧！
 		</c:if>
 	
+		 
+		
 </body>
 </html>

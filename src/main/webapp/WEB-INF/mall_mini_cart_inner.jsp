@@ -34,8 +34,15 @@
 <title>硅谷商城</title>
 </head>
 <body>
-	<a href="goto_cart_list.do"><button onmousemove="show_mini_cart()">我的购物车</button></a>
-	<div id="mini_cart_list" onmousemove="show_mini_cart_list()" onmouseout="hide_mini_cart()">
-	</div>
+	
+	
+	
+	<div class="card">
+		<a href="goto_cart_list.do" onmousemove="show_mini_cart()" >购物车<div class="num">0</div></a>
+			
+		<div id="mini_cart_list" onmousemove="show_mini_cart_list()" onmouseout="hide_mini_cart()">
+		</div>
+			
+		</div>
 </body>
 </html>

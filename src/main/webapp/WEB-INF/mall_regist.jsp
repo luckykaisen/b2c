@@ -11,18 +11,125 @@
 <script type="text/javascript" src="js/jquery-1.7.2.min.js"></script>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <script type="text/javascript">
+$(function(){
+	$("#btn").click(function(){
+		var pwd1 = $("#pwd").val();
+		var pwd2 = $("#pwd2").val();
+		if(pwd1 != pwd2){
+			$("#pwd_tip").text("两次密码输入不一致");
+			return false;
+		} 
+		$(this).submit();
+		
+	}); 
+});
+	
+
+	
 
 </script>
-<title>硅谷商城</title>
+<title>注册页面</title>
+<link rel="stylesheet" href="css/sign.css"/>
 </head>
 <body>
-	<form action="mall_regist.do" method="post">
-		用户名：<input type="text" name="yh_mch"/><br>
-		用户昵称：<input type="text" name="yh_nch"/><br>
-		用户邮箱：<inputype="text" name="yh_yx"/><br>
-		密    码：<input type="text" name="yh_mm"/><br>
-		<input type="submit" value="提交"/>
-	</form>
-
+	 <!--头部-->
+    <div class="header">
+        <a class="logo" href="##"></a>
+        <div class="desc">欢迎注册</div>
+    </div>
+    <!--版心-->
+    <div class="container">
+    	<!--京东注册模块-->
+    	<div class="register">
+    		<form action="mall_regist.do" method="post">
+    		<!--用户名-->
+    		<div class="register-box">
+    			<!--表单项-->
+    			<div class="box default">
+    				<label for="userName">用&nbsp;户&nbsp;名</label>
+    				<input type="text" id="userName" placeholder="您的账户名和登录名" name="yh_mch" />
+    				<i></i>
+    			</div>
+    			<!--提示信息-->
+    			<div class="tip">
+    				<i></i>
+    				<span></span>
+    			</div>
+    		</div>
+    		<!--设置密码-->
+    		<div class="register-box">
+    			<!--表单项-->
+    			<div class="box default">
+    				<label for="pwd" >设 置 密 码</label>
+    				<input type="password" id="pwd" placeholder="建议至少两种字符组合" name="yh_mm" />
+    				<i></i>
+    			</div>
+    			<!--提示信息-->
+    			<div class="tip">
+    				<i></i>
+    				<span id="pwd_tip"></span>
+    			</div>
+    		</div>
+    		<!--确认密码-->
+    		<div class="register-box">
+    			<!--表单项-->
+    			<div class="box default">
+    				<label for="pwd2">确 认 密 码</label>
+    				<input type="password" id="pwd2" placeholder="请再次输入密码" />
+    				<i></i>
+    			</div>
+    			<!--提示信息-->
+    			<div class="tip">
+    				<i></i>
+    				<span></span>
+    			</div>
+    		</div>
+			<!--设置密码-->
+    		<div class="register-box">
+    			<!--表单项-->
+    			<div class="box default">
+    				<label for="email">邮 箱 验 证</label>
+    				<input type="text" id="email" placeholder="请输入邮箱" name="yh_yx"/>
+    				<i></i>
+    			</div>
+    			<!--提示信息-->
+    			<div class="tip">
+    				<i></i>
+    				<span></span>
+    			</div>
+    		</div>
+    		<!--手机验证-->
+    		<div class="register-box">
+    			<!--表单项-->
+    			<div class="box default">
+    				<label for="mobile">手 机 验 证</label>
+    				<input type="text" id="mobile" placeholder="请输入手机号" />
+    				<i></i>
+    			</div>
+    			<!--提示信息-->
+    			<div class="tip">
+    				<i></i>
+    				<span></span>
+    			</div>
+    		</div>
+    		 <!--注册协议-->
+    		<div class="register-box xieyi">
+    			<!--表单项-->
+    			<div class="box default">
+    				<input type="checkbox" id="ck" />
+    				<span>我已阅读并同意<a href="##">《京东用户注册协议》</a></span>
+    			</div>
+    			<!--提示信息-->
+    			<div class="tip">
+    				<i></i>
+    				<span></span>
+    			</div>
+    		</div>
+    		<!--注册-->
+    		<button id="btn">注册</button>
+    		</form>
+    	</div>
+    	
+    </div>
 </body>
 </html>

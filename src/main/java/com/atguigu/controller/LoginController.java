@@ -160,7 +160,7 @@ public class LoginController {
 			return "mall_regist";
 		}else {
 			// 注册成功
-			return "mall_index";
+			return "redirect:/mall_index.do";
 		}
 		
 	} 
