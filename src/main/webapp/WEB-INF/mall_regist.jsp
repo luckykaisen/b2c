@@ -103,7 +103,7 @@ $(function(){
     			<!--表单项-->
     			<div class="box default">
     				<label for="mobile">手 机 验 证</label>
-    				<input type="text" id="mobile" placeholder="请输入手机号" />
+    				<input type="text" id="mobile" placeholder="请输入手机号" name="yh_shjh"/>
     				<i></i>
     			</div>
     			<!--提示信息-->

@@ -2,13 +2,16 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
 	xmlns:jdbc="http://www.springframework.org/schema/jdbc"
+	xmlns:jaxws="http://cxf.apache.org/jaxws"
 	xsi:schemaLocation="
        http://www.springframework.org/schema/beans
        http://www.springframework.org/schema/beans/spring-beans.xsd
        http://www.springframework.org/schema/context
        http://www.springframework.org/schema/context/spring-context.xsd
        http://www.springframework.org/schema/jdbc 
-       http://www.springframework.org/schema/jdbc/spring-jdbc.xsd">
+       http://www.springframework.org/schema/jdbc/spring-jdbc.xsd
+       http://cxf.apache.org/jaxws
+       http://cxf.apache.org/schemas/jaxws.xsd">
 	<context:property-placeholder location="classpath:dbConfig.properties" />
 	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource">
 		<property name="driverClassName" value="com.mysql.jdbc.Driver" />
@@ -32,5 +35,9 @@
 		<property name="sqlSessionFactoryBeanName" value="sqlSessionFactoryBean" />
 	</bean>
 
-
+	<!-- 自定义webservice -->
+	<bean name="interfaceFactoryBean" class="com.atguigu.util.InterfaceFactoryBean">
+		<property name="url" value="http://localhost/web_service_service/user?wsdl"></property>
+		<property name="t" value="com.atguigu.service.UserService_ws"></property>
+	</bean>
 </beans>

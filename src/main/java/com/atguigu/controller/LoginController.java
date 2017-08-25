@@ -23,6 +23,7 @@ import com.atguigu.bean.T_MALL_SHOPPINGCAR;
 import com.atguigu.bean.T_MALL_USER;
 import com.atguigu.service.CartService;
 import com.atguigu.service.LoginService;
+import com.atguigu.service.UserService_ws;
 import com.atguigu.util.BigDecimalUtil;
 
 @Controller
@@ -33,6 +34,9 @@ public class LoginController {
 	
 	@Autowired
 	private CartService cartService;
+	
+	@Autowired
+	private UserService_ws userService_ws;
 	
 	@RequestMapping("goto_mall_login")
 	public String goto_mall_login() {
@@ -46,8 +50,8 @@ public class LoginController {
 	
 	@RequestMapping("mall_login")
 	public String mall_login(@CookieValue(value="cart_cookie",required=false)String cart_cookie ,HttpSession session,HttpServletResponse response, T_MALL_USER user) {
-		T_MALL_USER login_user = loginService.mall_login(user);
-		
+		//T_MALL_USER login_user = loginService.mall_login(user);
+		T_MALL_USER login_user = userService_ws.login(user);
 		Map<String,Object> paramMap = new HashMap<String,Object>();
 		
 		List<T_MALL_SHOPPINGCAR> list_cart = new ArrayList<T_MALL_SHOPPINGCAR>();
@@ -152,10 +156,9 @@ public class LoginController {
 	
 	
 	@RequestMapping("mall_regist")
-	public String mall_regist(T_MALL_USER user) {
-		
-		int result = loginService.mall_regist(user);
-		
+	public String mall_regist(T_MALL_USER user ) {
+		int result = userService_ws.mall_regist(user);
+		userService_ws.sendSMS(user.getYh_shjh());
 		if(result == 0) {
 			return "mall_regist";
 		}else {
@@ -169,7 +172,6 @@ public class LoginController {
 	public String mall_logout(HttpSession session) {
 		
 		session.invalidate();
-		
 		return "mall_index";
 	} 
 }
