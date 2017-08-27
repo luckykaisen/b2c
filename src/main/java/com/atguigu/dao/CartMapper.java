@@ -5,6 +5,7 @@ import java.util.Map;
 
 import org.apache.ibatis.annotations.Param;
 
+import com.atguigu.bean.T_MALL_ORDER_INFO;
 import com.atguigu.bean.T_MALL_SHOPPINGCAR;
 
 public interface CartMapper {
@@ -24,5 +25,7 @@ public interface CartMapper {
 	void update_cart_total_price_and_total_num(Map<String, Object> paramMap);
 
 	void delete_cart_by_sku_id(Map<String, Object> paramMap);
+
+	void delete_cart_commdity_by_sku_id_and_user_id(@Param("list_order_info")List<T_MALL_ORDER_INFO> list_order_info,@Param("yh_id")int userId);
 
 }

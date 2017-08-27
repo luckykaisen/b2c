@@ -5,7 +5,7 @@ import java.util.Date;
 
 public class T_MALL_ORDER {
 
-	private Integer id;
+	private String id;
 	private String shhr;
 	private BigDecimal zje;
 	private Integer jdh;
@@ -15,11 +15,11 @@ public class T_MALL_ORDER {
 	private Integer dzh_id;
 	private String dzh_mch;
 
-	public Integer getId() {
+	public String getId() {
 		return id;
 	}
 
-	public void setId(Integer id) {
+	public void setId(String id) {
 		this.id = id;
 	}
 

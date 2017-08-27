@@ -40,4 +40,9 @@
 		<property name="url" value="http://localhost/web_service_service/user?wsdl"></property>
 		<property name="t" value="com.atguigu.service.UserService_ws"></property>
 	</bean>
+	
+	<bean name="interfaceFactoryBean2" class="com.atguigu.util.InterfaceFactoryBean">
+		<property name="url" value="http://localhost/web_service_service/address?wsdl"></property>
+		<property name="t" value="com.atguigu.service.AddressService"></property>
+	</bean>
 </beans>

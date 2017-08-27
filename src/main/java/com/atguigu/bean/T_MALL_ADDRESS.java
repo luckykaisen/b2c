@@ -3,7 +3,7 @@ package com.atguigu.bean;
 public class T_MALL_ADDRESS {
 
 	private int id;
-	private String yh_dz;
+	private String dz_mch;
 	private String dzzt;
 	private int yh_id;
 	private String shjr;
@@ -17,12 +17,14 @@ public class T_MALL_ADDRESS {
 		this.id = id;
 	}
 
-	public String getYh_dz() {
-		return yh_dz;
+	
+
+	public String getDz_mch() {
+		return dz_mch;
 	}
 
-	public void setYh_dz(String yh_dz) {
-		this.yh_dz = yh_dz;
+	public void setDz_mch(String dz_mch) {
+		this.dz_mch = dz_mch;
 	}
 
 	public String getDzzt() {

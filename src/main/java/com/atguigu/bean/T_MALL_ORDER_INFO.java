@@ -1,33 +1,35 @@
 package com.atguigu.bean;
 
+import java.math.BigDecimal;
 import java.util.Date;
 
 public class T_MALL_ORDER_INFO {
 
-	private int id;
-	private int dd_id;
+	private String id;
+	private String dd_id;
 	private int sku_id;
 	private Date chjshj;
 	private String sku_mch;
 	private String shp_tp;
-	private double sku_jg;
+	private BigDecimal sku_jg;
 	private int sku_shl;
 	private String sku_kcdz;
 	private int gwch_id;
+	private String wl_id;
 
-	public int getId() {
+	public String getId() {
 		return id;
 	}
 
-	public void setId(int id) {
+	public void setId(String id) {
 		this.id = id;
 	}
 
-	public int getDd_id() {
+	public String getDd_id() {
 		return dd_id;
 	}
 
-	public void setDd_id(int dd_id) {
+	public void setDd_id(String dd_id) {
 		this.dd_id = dd_id;
 	}
 
@@ -63,11 +65,12 @@ public class T_MALL_ORDER_INFO {
 		this.shp_tp = shp_tp;
 	}
 
-	public double getSku_jg() {
+	
+	public BigDecimal getSku_jg() {
 		return sku_jg;
 	}
 
-	public void setSku_jg(double sku_jg) {
+	public void setSku_jg(BigDecimal sku_jg) {
 		this.sku_jg = sku_jg;
 	}
 
@@ -95,4 +98,13 @@ public class T_MALL_ORDER_INFO {
 		this.gwch_id = gwch_id;
 	}
 
+	public String getWl_id() {
+		return wl_id;
+	}
+
+	public void setWl_id(String wl_id) {
+		this.wl_id = wl_id;
+	}
+
+	
 }

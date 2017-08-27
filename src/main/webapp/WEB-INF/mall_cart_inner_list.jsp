@@ -67,6 +67,11 @@
 		});
 	}
 
+	$(function(){
+		$(".jiesuan").click(function(){
+			$("#form_cart").submit();
+		});
+	});
 </script>
 <title>硅谷商城</title>
 </head>
@@ -82,6 +87,7 @@
  
 	<c:if test="${not empty list_cart}">
 		<div class="Cbox">
+		<form id="form_cart" action="ConfirmOrder.do" method="post">
 			<table class="table table-striped table-bordered table-hover">
 			   <thead>
 			     <tr>
@@ -96,7 +102,7 @@
 			     </tr>
 			   </thead>
 			   <tbody>
-					<c:forEach items="${list_cart}" var="cart"> 
+					<c:forEach items="${list_cart}" var="cart" varStatus="index"> 
 					<tr>
 						<td><input class="commdity_check" type="checkbox" onclick="commdity_check(this.checked,${cart.sku_id})" ${cart.shfxz=="0"?"":"checked"}/></td>
 						<td>
@@ -127,12 +133,15 @@
 				</c:forEach>
 			   </tbody>
 		 	</table>
+		 	
 		</div>
 		<div class="Cprice">
 			<div class="price">总价：${total_price }</div>
 			<div class="price">总数量：${total_commodity }</div>
 			<div class="jiesuan">结算</div>
 		</div>
+		
+		</form>
 	</c:if>  
 	
 </body>

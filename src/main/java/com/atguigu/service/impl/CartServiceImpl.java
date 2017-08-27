@@ -3,9 +3,11 @@ package com.atguigu.service.impl;
 import java.util.List;
 import java.util.Map;
 
+import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.atguigu.bean.T_MALL_ORDER_INFO;
 import com.atguigu.bean.T_MALL_SHOPPINGCAR;
 import com.atguigu.dao.CartMapper;
 import com.atguigu.service.CartService;
@@ -57,5 +59,10 @@ public class CartServiceImpl implements CartService {
 	@Override
 	public void delete_cart_by_sku_id(Map<String, Object> paramMap) {
 		cartMapper.delete_cart_by_sku_id(paramMap);
+	}
+
+	@Override
+	public void delete_cart_commdity_by_sku_id_and_user_id(List<T_MALL_ORDER_INFO> list_order_info,int userId) {
+		cartMapper.delete_cart_commdity_by_sku_id_and_user_id(list_order_info,userId);
 	}
 }

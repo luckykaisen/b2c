@@ -10,6 +10,10 @@ import com.aliyuncs.profile.DefaultProfile;
 import com.aliyuncs.profile.IClientProfile;
 
 public class SMSUtil {
+	
+	public static void main(String[] args) throws ClientException {
+		sendCode("abcd","18401760734");
+	}
 	public static void sendCode(String code , String phoneNum) throws ClientException { 
 		//设置超时时间-可自行调整
 		System.setProperty("sun.net.client.defaultConnectTimeout", "10000");

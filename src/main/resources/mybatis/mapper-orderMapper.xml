@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper SYSTEM "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.atguigu.dao.OrderMapper">
+	<!-- 保存用户订单 -->
+	<insert id="saveOrder">
+  	  insert into t_mall_order(
+  	 	Id,
+		shhr,
+		zje,
+		jdh,
+		yh_id,
+		yjsdshj,
+		dzh_id,
+		dzh_mch
+  	  ) values(
+  	  	#{id},
+		#{shhr},
+		#{zje},
+		#{jdh},
+		#{yh_id},
+		#{yjsdshj},
+		#{dzh_id},
+		#{dzh_mch}
+  	  )
+  </insert>
+  
+  <!-- 保存物流id -->
+  <insert id="saveFlowId">
+  	insert into t_mall_flow_info(Id) values
+  		<foreach collection="list_parcel" item="flowId" separator=",">
+  			(#{flowId.id})
+  		</foreach>
+  </insert>
+  
+  <insert id="saveOrderInfo">
+  	insert into t_mall_order_info(
+  		dd_id,
+		sku_id,
+		sku_mch,
+		shp_tp,
+		sku_jg,
+		sku_shl,
+		sku_kcdz,
+		gwch_id,
+		wl_id
+  	) values
+  	<foreach collection="list_order_info" separator="," item="order_info">
+  		(
+  		#{order_info.dd_id},
+		#{order_info.sku_id},
+		#{order_info.sku_mch},
+		#{order_info.shp_tp},
+		#{order_info.sku_jg},
+		#{order_info.sku_shl},
+		#{order_info.sku_kcdz},
+		#{order_info.gwch_id},
+		#{order_info.wl_id}
+		)
+  	</foreach>
+  </insert>
+</mapper>

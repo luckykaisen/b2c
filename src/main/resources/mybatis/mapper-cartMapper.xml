@@ -109,4 +109,10 @@
 	<delete id="delete_cart_by_sku_id" parameterType="map">
 		delete from t_mall_shoppingcar where yh_id=#{yh_id} and sku_id = #{sku_id}
 	</delete>
+	
+	<delete id="delete_cart_commdity_by_sku_id_and_user_id">
+		<foreach collection="list_order_info" item="order_info" separator=";">
+			delete from t_mall_shoppingcar where yh_id=#{yh_id} and sku_id = #{order_info.sku_id}
+		</foreach>
+	</delete>
 </mapper>
