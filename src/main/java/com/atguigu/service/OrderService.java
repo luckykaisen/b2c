@@ -7,4 +7,7 @@ import com.atguigu.bean.T_MALL_USER;
 public interface OrderService {
 	
 	void saveOrderInfo(MODEL_OBJECT_T_MALL_ORDER order , T_MALL_USER user , T_MALL_ADDRESS address);
+
+	void update_order_flow_status(MODEL_OBJECT_T_MALL_ORDER order, T_MALL_USER user);
+
 }

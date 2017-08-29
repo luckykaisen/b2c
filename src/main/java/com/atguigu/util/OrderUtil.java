@@ -1,6 +1,7 @@
 package com.atguigu.util;
 
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.Random;
 
@@ -34,4 +35,6 @@ public class OrderUtil {
 		sb.append(format).append(nextInt).append(userId);
 		return sb.toString();
 	}
+	
+	
 }

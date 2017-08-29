@@ -8,7 +8,7 @@ public class T_MALL_FLOW {
 	private Date psshj;
 	private String psmsh;
 	private int yh_id;
-	private int dd_id;
+	private String dd_id;
 	private String mqdd;
 	private String mdd;
 	private String ywy;
@@ -54,11 +54,11 @@ public class T_MALL_FLOW {
 		this.yh_id = yh_id;
 	}
 
-	public int getDd_id() {
+	public String getDd_id() {
 		return dd_id;
 	}
 
-	public void setDd_id(int dd_id) {
+	public void setDd_id(String dd_id) {
 		this.dd_id = dd_id;
 	}
 

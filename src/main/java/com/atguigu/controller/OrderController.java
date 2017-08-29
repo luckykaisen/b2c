@@ -42,9 +42,19 @@ public class OrderController {
 	@Autowired
 	private CartService cartService;
 	
+	@RequestMapping("pay_success")
+	public String pay_success() {
+		return "pay_success";
+	}
+	
 	@RequestMapping("goto_mall_pay")
 	public String goto_mall_pay() {
 		return "mall_pay";
+	}
+	
+	@RequestMapping("pay_fail")
+	public String pay_fail() {
+		return "pay_fail";
 	}
 	
 	/**
@@ -83,7 +93,8 @@ public class OrderController {
 			String kcdzh = iterator.next();
 			BigDecimal parcel_total_price = new BigDecimal("0");
 			// 包裹的库存地址
-			parcel.setSku_kcdz(kcdzh);
+			//parcel.setSku_kcdz(kcdzh);
+			parcel.setMqdd(kcdzh);
 			for(int i = 0; i < list_cart.size(); i++) {
 				if(kcdzh.equals(list_cart.get(i).getKcdz()) && list_cart.get(i).getShfxz().equals("1")) {
 					T_MALL_ORDER_INFO order_info = new T_MALL_ORDER_INFO();
@@ -105,7 +116,8 @@ public class OrderController {
 			}
 			parcel.setList_flow(flow_order_info);
 			// 设置包裹的总价格
-			parcel.setSku_jg(parcel_total_price);
+//			//parcel.setSku_jg(parcel_total_price);
+//			parcel.set
 			list_parcel.add(parcel);
 		}
 		// 把包裹最后放入订单中
@@ -141,13 +153,35 @@ public class OrderController {
 		orderService.saveOrderInfo(order, user, address);
 		
 		// 清空session订单记录
-		session.setAttribute("order", "");
+		//session.setAttribute("order", "");
 		Map<String,Object> paramMap = new HashMap<String,Object>();
 		paramMap.put("yh_id", user.getId());
 		List<T_MALL_SHOPPINGCAR> list_cart = cartService.query_cart(paramMap);
 		session.setAttribute("list_cart", list_cart);
-		
-		
 		return mav;
 	}
+	
+	/**
+	 * 付款成功，支付该方法，减库存，更新物流信息，订单信息
+	 * @param order
+	 * @param session
+	 * @return
+	 */
+	@RequestMapping("do_pay")
+	public String do_pay(@ModelAttribute("order")MODEL_OBJECT_T_MALL_ORDER order,HttpSession session) {
+		
+		T_MALL_USER user = (T_MALL_USER) session.getAttribute("user");
+		try {
+			orderService.update_order_flow_status(order, user);
+		} catch (Exception e) {
+			e.printStackTrace();
+			return "redirect:/pay_fail.do";
+		}
+		
+		
+		// 清空session订单记录
+		session.setAttribute("order", "");
+		return "redirect:/pay_success.do";
+	}
+	
 }

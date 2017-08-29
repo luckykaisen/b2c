@@ -22,7 +22,7 @@
 		</c:forEach>
 		<br><br><hr>
 		<c:forEach items="${order.list_parcel}" var="parcel">
-			库存地址：${parcel.sku_kcdz} <hr>
+			库存地址：${parcel.mqdd} <hr>
 			<c:forEach items="${parcel.list_flow}" var="order_info">
 				订单名称 ：  ${order_info.sku_mch}<br>
 				图片 ： <img alt="" src="upload/image/${order_info.shp_tp}" width="100px"><br>

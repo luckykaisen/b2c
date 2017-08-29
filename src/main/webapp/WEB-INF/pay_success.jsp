@@ -16,9 +16,7 @@
 <title>硅谷商城</title>
 </head>
 <body>
-<h1>支付系统</h1>
-<form action="do_pay.do" method="get">
-	<input type="submit" value="支付"/>
-</form>
+<h1>支付成功</h1>
+
 </body>
 </html>

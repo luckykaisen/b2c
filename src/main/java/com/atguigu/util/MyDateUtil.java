@@ -1,6 +1,7 @@
 package com.atguigu.util;
 
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
 
 public class MyDateUtil {
@@ -15,5 +16,15 @@ public class MyDateUtil {
 		String format = simpleDateFormat.format(new Date());
 		
 		return format;
+	}
+	
+	/**
+	 * 时间的相加相减
+	 * @return
+	 */
+	public static Date get_flow_time(int time) {
+		Calendar calendar = Calendar.getInstance();
+		calendar.add(Calendar.DATE, 3);
+		return calendar.getTime();
 	}
 }

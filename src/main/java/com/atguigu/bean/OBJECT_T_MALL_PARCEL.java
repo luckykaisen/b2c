@@ -2,7 +2,7 @@ package com.atguigu.bean;
 
 import java.util.List;
 
-public class OBJECT_T_MALL_PARCEL extends T_MALL_ORDER_INFO{
+public class OBJECT_T_MALL_PARCEL extends T_MALL_FLOW{
 	
 	List<T_MALL_ORDER_INFO> list_flow;
 

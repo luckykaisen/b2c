@@ -17,6 +17,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.CookieValue;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.alibaba.fastjson.JSON;
 import com.atguigu.bean.T_MALL_SHOPPINGCAR;
@@ -25,6 +26,8 @@ import com.atguigu.service.CartService;
 import com.atguigu.service.LoginService;
 import com.atguigu.service.UserService_ws;
 import com.atguigu.util.BigDecimalUtil;
+
+import redis.clients.jedis.Jedis;
 
 @Controller
 public class LoginController {
@@ -158,7 +161,7 @@ public class LoginController {
 	@RequestMapping("mall_regist")
 	public String mall_regist(T_MALL_USER user ) {
 		int result = userService_ws.mall_regist(user);
-		userService_ws.sendSMS(user.getYh_shjh());
+		
 		if(result == 0) {
 			return "mall_regist";
 		}else {
@@ -174,4 +177,16 @@ public class LoginController {
 		session.invalidate();
 		return "mall_index";
 	} 
+	
+	@ResponseBody
+	@RequestMapping("sendVerifyCode")
+	public String sendVerifyCode() {
+		Jedis jedis = new Jedis("192.168.233.128",6379);
+		
+		String ping = jedis.ping();
+		
+		System.out.println(ping);
+		
+		return ping;
+	}
 }

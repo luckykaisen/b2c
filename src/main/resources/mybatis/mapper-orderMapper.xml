@@ -9,7 +9,6 @@
 		zje,
 		jdh,
 		yh_id,
-		yjsdshj,
 		dzh_id,
 		dzh_mch
   	  ) values(
@@ -18,7 +17,6 @@
 		#{zje},
 		#{jdh},
 		#{yh_id},
-		#{yjsdshj},
 		#{dzh_id},
 		#{dzh_mch}
   	  )
@@ -58,4 +56,51 @@
 		)
   	</foreach>
   </insert>
+  
+  <!-- 插入物流信息 -->
+  <insert id="save_flow_info" parameterType="com.atguigu.bean.T_MALL_FLOW" useGeneratedKeys="true" keyColumn="id" keyProperty="id">
+  	insert into t_mall_flow(
+		yh_id,
+		dd_id,
+		mdd
+  	)values(
+		#{yh_id},
+		#{dd_id},
+		#{mdd}
+  	)
+  </insert>
+  
+  <select id="if_can_buy" parameterType="com.atguigu.bean.T_MALL_ORDER_INFO" resultType="int">
+  	select kc-#{sku_shl} from t_mall_sku where id = #{sku_id} for update
+  </select>
+  
+  <!-- 修改订单的状态，预计送达时间 -->
+  <update id="update_order_status" parameterType="com.atguigu.bean.MODEL_OBJECT_T_MALL_ORDER">
+  	update t_mall_order set jdh=3,yjsdshj=#{yjsdshj}
+  </update>
+  
+  <!-- 修改库存销量 -->
+  <update id="update_sku_kc_xl" parameterType="com.atguigu.bean.T_MALL_ORDER_INFO">
+  	update t_mall_sku 
+  	<set>
+  		sku_xl=sku_xl + #{sku_shl},
+  		kc=kc - #{sku_shl}
+  	</set>
+  	where id=#{sku_id}
+  </update>
+  
+  <!-- 修改订单的信息 -->
+  <update id="update_flow_info">
+  	<foreach collection="list_parcel" item="parcel" separator=";">
+  		update t_mall_flow
+	  	<set>
+	  		lxfsh = #{parcel.lxfsh},
+			psfsh = #{parcel.psfsh},
+			psmsh = #{parcel.psmsh},
+			ywy = #{parcel.ywy},
+			psshj = #{parcel.psshj}
+	  	</set>
+	  	where id=#{parcel.id}
+  	</foreach>
+  </update>
 </mapper>
