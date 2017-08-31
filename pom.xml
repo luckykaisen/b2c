@@ -226,12 +226,12 @@
 			<groupId>org.aspectj</groupId>
 			<artifactId>aspectjweaver</artifactId>
 			<version>1.6.8</version>
-		</dependency>
+		</dependency> 
 		<dependency>
 			<groupId>aopalliance</groupId>
 			<artifactId>aopalliance</artifactId>
 			<version>1.0</version>
-		</dependency>
+		</dependency> 
 	</dependencies>
   <build> 
     <finalName>mall_manage_sen</finalName>
